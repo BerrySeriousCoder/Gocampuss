@@ -1,0 +1,70 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 280 60% 9.8%;
+    --foreground: 0 0% 98%;
+
+    --card: 280 15% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 280 15% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 287 55% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 10% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 280 10% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 287 55% 35%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 280 15% 25%;
+    --input: 280 15% 25%;
+    --ring: 287 55% 35%;
+
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Glass card effect */
+  .glass {
+    @apply bg-purple-primary/20 backdrop-blur-sm border border-surface-border;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-purple-dark to-purple-primary;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-light to-purple-accent text-transparent bg-clip-text;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-purple-primary/20 hover:translate-y-[-2px];
+  }
+
+  .pill {
+    @apply rounded-full bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground;
+  }
+}
