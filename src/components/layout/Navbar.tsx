@@ -18,7 +18,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center  gap-2">
             <img src={logo} alt="logo" className="h-10 w-8" />
 
-            <span className="text-xl font-bold tracking-tight">Go campuss</span>
+            <span className="text-xl font-bold tracking-tight">Go Campuss</span>
           </Link>
         </div>
         <nav className="hidden md:flex items-center gap-6">
