@@ -55,7 +55,7 @@ const Footer = () => {
 
         <div className="fixed bottom-4 right-4 flex items-center text-muted-foreground text-sm z-10 group bg-gray-800 p-2 rounded-md shadow-lg"> {/* Added background, padding, rounded corners, and shadow */}
           Made with <span className="text-red-500 mx-1">❤️</span> by
-          <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noopener noreferrer" className="ml-1 hover:text-purple-light transition-colors transform group-hover:scale-110"> {/* Added transform and group-hover:scale-110 */}
+          <a href="https://www.linkedin.com/in/harsh-vardhan-singh-2ab454257/" target="_blank" rel="noopener noreferrer" className="ml-1 hover:text-purple-light transition-colors transform group-hover:scale-110"> {/* Added transform and group-hover:scale-110 */}
             <span className="inline-block text-xl">👤</span>
           </a>
         </div>
