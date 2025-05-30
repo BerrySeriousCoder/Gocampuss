@@ -8,16 +8,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button"; // Assuming you have a Button component
+import JoinGroupDialog from "@/components/ui/JoinGroupDialog";
 import profile from '../assets/profile.jpg'
+
 
 const Portfolio = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -53,16 +47,16 @@ const Portfolio = () => {
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h2 className="text-3xl font-bold mb-6">About Me</h2>
-            <p className="text-lg italic mb-4">
-              I'm Sumit Mishra, an AKTU Counseling Expert dedicated to guiding students toward their dream colleges.
-            </p>
-            <img src={profile} alt="About Me" className="w-full h-48 object-cover rounded-lg mt-4 shadow-lg" />
+            <img src={profile} alt="About Me" className="w-full h-auto object-cover rounded-lg mt-4 shadow-lg" />
           </div>
           <div>
+             <p className="text-lg italic mb-10">
+              I'm Sumit Mishra, an AKTU Counseling Expert dedicated to guiding students toward their dream colleges.
+            </p>
             <p className="text-lg italic">
               With years of experience in AKTU admissions, I have helped thousands of students navigate the complex counseling process, ensuring they make informed decisions based on their JEE Mains rank, preferences, and budget.
             </p>
-            <p className="text-lg italic mt-4">
+            <p className="text-lg italic mt-10">
               My mission is to simplify the admission journey, providing clarity and confidence every step of the way. I believe in empowering students to make choices that align with their academic goals and career aspirations.
             </p>
           </div>
@@ -202,7 +196,6 @@ const Portfolio = () => {
       </section>
 
 
-
       <div className="container py-20">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What Our Students Say</h2>
         <Carousel
@@ -285,31 +278,18 @@ const Portfolio = () => {
             </p>
 
             <div className="text-center">
-              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-                <DialogTrigger asChild>
-                  <Button className="bg-purple-light text-purple-dark px-8 py-4 rounded-full text-lg font-bold hover:bg-white transition-colors duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-light focus:ring-opacity-50">
-                    Book Your JEE Counseling Now & Take Control of Your Future!
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px] bg-purple-dark text-white border-purple-light/30">
-                  <DialogHeader>
-                    <DialogTitle className="text-purple-light">Choose Your Counseling Path</DialogTitle>
-                    <DialogDescription className="text-muted-foreground">
-                      Select the group that best suits your needs.
-                    </DialogDescription>
-                  </DialogHeader>
-                  <div className="grid gap-4 py-4">
-                    <Button asChild className="bg-purple-primary hover:bg-purple-light text-white hover:text-purple-dark font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-                      <a href="https://chat.whatsapp.com/DVk8OwBUikbCo4pJczU2NC" target="_blank" rel="noopener noreferrer">Join Paid Group</a>
-                    </Button>
-                    <Button asChild variant="outline" className="border-purple-light text-purple-light hover:bg-purple-light hover:text-purple-dark font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-                      <a href="https://chat.whatsapp.com/KgGWHmkR26b3BYxYJvp1Sc" target="_blank" rel="noopener noreferrer">Join Free Group</a>
-                    </Button>
-                  </div>
-                </DialogContent>
-              </Dialog>
+              <JoinGroupDialog>
+                <Button className="bg-purple-light text-purple-dark px-8 py-4 rounded-full text-lg font-bold hover:bg-white transition-colors duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-light focus:ring-opacity-50 whitespace-normal">
+                  Book Your JEE Counseling Now & Take Control of Your Future!
+                </Button>
+              </JoinGroupDialog>
             </div>
           </div>
+        </div>
+        {/* Abstract shapes for background */}
+        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-30">
+          <div className="absolute w-64 h-64 bg-white rounded-full -top-20 -right-20 animate-blob animation-delay-1000"></div>
+          <div className="absolute w-80 h-80 bg-white rounded-full -bottom-40 -left-40 animate-blob animation-delay-3000"></div>
         </div>
       </section>
 

@@ -12,13 +12,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import JoinGroupDialog from "@/components/ui/JoinGroupDialog";
 
 
 const Home = () => {
   const navigate = useNavigate();
   const [rank, setRank] = useState<string>("");
   const [board, setBoard] = useState<"aktu">("aktu");
-  const [category, setCategory] = useState<string>("");
+  const [category, setCategory] = useState<string>("OPEN"); // Set default category to "OPEN"
   const [gender, setGender] = useState<string>("");
   const [searchError, setSearchError] = useState<string>("");
 
@@ -144,17 +145,10 @@ const Home = () => {
                     <div className="flex flex-wrap gap-2">
                       <button
                         type="button"
-                        className={`pill ${category === "" ? "bg-gradient-to-r from-purple-primary to-purple-light text-white" : ""}`}
-                        onClick={() => setCategory("")}
+                        className={`pill ${category === "OPEN" ? "bg-gradient-to-r from-purple-primary to-purple-light text-white" : ""}`}
+                        onClick={() => setCategory("OPEN")}
                       >
-                        All
-                      </button>
-                      <button
-                        type="button"
-                        className={`pill ${category === "general" ? "bg-gradient-to-r from-purple-primary to-purple-light text-white" : ""}`}
-                        onClick={() => setCategory("general")}
-                      >
-                        General
+                        OPEN
                       </button>
                       <button
                         type="button"
@@ -224,6 +218,9 @@ const Home = () => {
       
 
 
+
+
+
       {/* How It Works Section */}
       <motion.section
         initial="hidden"
@@ -279,7 +276,7 @@ const Home = () => {
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInVariants}
         className="py-20 bg-purple-primary/20 relative overflow-hidden"
-      >t 
+      >
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
             Your Trusted Partner in AKTU Admissions
@@ -305,6 +302,8 @@ const Home = () => {
           <div className="absolute w-80 h-80 bg-purple-accent/10 rounded-full -bottom-40 -left-40 animate-blob animation-delay-3000"></div>
         </div>
       </motion.section>
+
+      
 
       {/* FAQ Section */}
       <motion.section
@@ -357,8 +356,51 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* Testimonials Section */}
-     
+            {/* CTA Section */}
+            <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInVariants}
+        className="py-20 bg-gradient-to-r from-purple-primary/60 to-purple-light/60 relative overflow-hidden text-white"
+      >
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Secure Your Future?
+          </h2>
+          <p className="text-lg mb-10 max-w-3xl mx-auto">
+            Get personalized counseling or join our community group for support and insights.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <Button
+              onClick={() => {
+                // Placeholder for counselling action - maybe scroll to a contact form or open a modal?
+                // For now, let's just log it or navigate to a contact page if one exists
+                console.log("Request Counselling");
+                // navigate('/contact'); // Example if you have a contact page
+              }}
+              className="bg-white text-purple-primary px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-200 transition-colors duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+            >
+              Get Counselling
+            </Button>
+            <JoinGroupDialog>
+              <Button
+                className="bg-transparent border border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/10 transition-colors duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+              >
+                Join Our Group
+              </Button>
+            </JoinGroupDialog>
+          </div>
+        </div>
+        {/* Abstract shapes for background */}
+        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-30">
+          <div className="absolute w-64 h-64 bg-white rounded-full -top-20 -right-20 animate-blob animation-delay-1000"></div>
+          <div className="absolute w-80 h-80 bg-white rounded-full -bottom-40 -left-40 animate-blob animation-delay-3000"></div>
+        </div>
+      </motion.section>
+
+      
+
     </motion.div>
   );
 };

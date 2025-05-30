@@ -16,7 +16,7 @@ const SearchResults = () => {
   const [board, setBoard] = useState<"aktu">("aktu"); // Default to AKTU
   const [rank, setRank] = useState<number>(0);
   const [gender, setGender] = useState<string | null>(null);
-  const [category, setCategory] = useState<string | null>(null);
+  const [category, setCategory] = useState<string | null>("OPEN"); // Set default category to "OPEN"
   // Removed program and seatType states as they are not used for AKTU filters here
   const [quota, setQuota] = useState<string | null>(null);
   const [round, setRound] = useState<number | null>(null);
@@ -28,14 +28,22 @@ const SearchResults = () => {
   const resultsPerPage = 9;
 
   useEffect(() => {
+    console.log("useEffect [location.search] triggered");
     const searchParams = new URLSearchParams(location.search);
     const rankParam = searchParams.get("rank");
     const boardParam = searchParams.get("board") as "josaa" | "aktu";
     const categoryParam = searchParams.get("category");
     const genderParam = searchParams.get("gender");
     
+    console.log("Parsed URL params:", { rankParam, boardParam, categoryParam, genderParam });
+
     if (rankParam) {
+      // Update rank state, this will trigger the fetchResults effect
       setRank(Number(rankParam));
+    } else {
+      // If no rank param, maybe reset rank or handle appropriately
+      // For now, let's assume rankParam is always present based on bug description
+      // If not, we might need a default rank or different logic
     }
     
     // Board defaults to AKTU, BoardToggle also enforces AKTU
@@ -47,21 +55,43 @@ const SearchResults = () => {
     
     if (categoryParam) {
       setCategory(categoryParam);
+    } else {
+      // Set default category if not in URL
+      setCategory("OPEN");
     }
     
     if (genderParam) {
       setGender(genderParam);
+    } else {
+      // Set default gender if needed, or leave as null
+      setGender(null);
     }
     
     setCurrentPage(1);
-    fetchResults();
-  }, [location.search]);
+    // Do NOT call fetchResults here. The state updates above will trigger the other effect.
+    console.log("Finished parsing URL params, state updates should trigger fetch.");
+  }, [location.search]); // Depend only on location.search to react to URL changes
 
   useEffect(() => {
-    fetchResults();
-  }, [rank, gender, category, quota, round]); // Board is fixed to AKTU, program & seatType removed
+    // This effect runs when rank or any filter state changes
+    console.log("useEffect [rank, gender, category, quota, round] triggered");
+    console.log("Current filter states:", { rank, gender, category, quota, round });
+    
+    // Only fetch if rank is a valid number (greater than 0, assuming ranks are positive)
+    // and if category is set (since it has a default)
+    if (rank > 0 && category !== null) {
+        console.log("Calling fetchResults from filter state effect with valid state");
+        fetchResults();
+    } else {
+        console.log("Skipping fetchResults, state not ready:", { rank, category });
+        // Optionally clear results or show a message if state is not ready for a fetch
+        // setAktuResults([]);
+    }
+
+  }, [rank, gender, category, quota, round]); // Depend on all filter states and rank
   
   const fetchResults = async () => {
+    console.log("fetchResults called with filters:", { rank, gender, category, quota, round });
     setLoading(true);
     setError(null);
     
@@ -74,6 +104,7 @@ const SearchResults = () => {
         // program, // Program filter removed for AKTU as per requirements
         round
       });
+      console.log("fetchAktuData returned:", data);
       setAktuResults(data);
       
       setCurrentPage(1);
@@ -81,6 +112,7 @@ const SearchResults = () => {
       console.error("Error fetching results:", err);
       setError("Failed to load college data. Please try again.");
     } finally {
+      console.log("fetchResults finished, setting loading to false");
       setLoading(false);
     }
   };
@@ -124,6 +156,8 @@ const SearchResults = () => {
   
   const currentResults = aktuResults; // Only AKTU results now
   
+  console.log("Rendering SearchResults. currentResults.length:", currentResults.length);
+
   // Calculate pagination
   const indexOfLastResult = currentPage * resultsPerPage;
   const indexOfFirstResult = indexOfLastResult - resultsPerPage;

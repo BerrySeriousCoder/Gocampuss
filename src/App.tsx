@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"; // Import useLocation
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
@@ -17,18 +17,24 @@ import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
-function  App()  {  
- 
+function App() {
+  const location = useLocation(); // Get current location
 
   useEffect(() => {
-   
+    // Scroll to top on route change
+    window.scrollTo(0, 0);
+  }, [location.pathname]); // Trigger effect when pathname changes
+
+
+  useEffect(() => {
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       touchMultiplier: 2,
     });
 
-   
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -36,7 +42,7 @@ function  App()  {
 
     requestAnimationFrame(raf);
 
-  
+
     return () => {
       lenis.destroy();
     };
@@ -44,11 +50,10 @@ function  App()  {
 
   return (
     <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Routes> {/* Routes should be inside BrowserRouter */}
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
             <Route path="/search-results" element={<SearchResults />} />
@@ -59,11 +64,17 @@ function  App()  {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </TooltipProvider>
+    </QueryClientProvider>
   )
 
 };
 
-export default App;
+const WrappedApp = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+
+export default WrappedApp;

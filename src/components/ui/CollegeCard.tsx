@@ -22,7 +22,7 @@ const CollegeCard = ({
   program,
   openingRank,
   closingRank,
-  category = "General",
+  category, // Remove default value
   gender = "Gender-Neutral",
   seatType = "OPEN",
   round,
@@ -44,7 +44,11 @@ const CollegeCard = ({
         </div>
         
         <div className="flex flex-wrap gap-2 mb-3">
-          <span className="pill bg-purple-dark/50">{category}</span>
+          {category && (category === "General" || category === "All" ? (
+            <span className="pill bg-purple-dark/50">OPEN</span>
+          ) : (
+            <span className="pill bg-purple-dark/50">{category}</span>
+          ))}
           <span className="pill bg-purple-dark/50">{gender}</span>
           {seatType && <span className="pill bg-purple-dark/50">{seatType}</span>}
           {quota && <span className="pill bg-purple-dark/50">{quota}</span>}
@@ -64,12 +68,6 @@ const CollegeCard = ({
           </div>
           
           {/* Wrap the "View Details" div with a Link component */}
-          <Link
-            to="/colleges" // Hardcoded to /colleges route
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-primary to-purple-light px-4 py-2 font-medium text-white transition hover:from-purple-light hover:to-purple-accent"
-          >
-            View colleges Details <ArrowRight className="h-4 w-4" />
-          </Link>
         </div>
       </div>
     </div>
