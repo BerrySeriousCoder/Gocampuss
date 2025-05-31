@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Youtube } from 'lucide-react';
 import { Instagram, X , Linkedin} from 'lucide-react';
 import { testimonials } from "@/lib/testimonials";
 import { useState } from 'react';
@@ -60,6 +60,11 @@ const Portfolio = () => {
             <p className="text-lg italic mt-10">
               My mission is to simplify the admission journey, providing clarity and confidence every step of the way. I believe in empowering students to make choices that align with their academic goals and career aspirations.
             </p>
+            <div className='mt-10' >
+            <a href="https://www.youtube.com/@sumitmishra77?feature=shared" target="_blank" rel="noopener noreferrer" className="text-purple-light hover:text-white transition-colors duration-300" aria-label="LinkedIn">
+                My Youtube Channel <Youtube size={40} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
