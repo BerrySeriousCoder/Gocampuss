@@ -79,7 +79,6 @@ export const fetchAktuData = async (
   let supabaseQuery = supabase
     .from('aktu')
     .select('*, city') // Ensure city is selected if not covered by '*' or if explicitly needed
-    .lte('opening_rank', rank) // User's rank must be greater than or equal to the opening rank
     .gte('closing_rank', rank) // User's rank must be less than or equal to the closing rank
     .order('closing_rank', { ascending: true });
 

@@ -8,16 +8,16 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
+import { Dispatch, SetStateAction } from 'react';
+
 interface JoinGroupDialogProps {
-  children: React.ReactNode;
+  open: boolean;
+  onOpenChange: Dispatch<SetStateAction<boolean>>;
 }
 
-const JoinGroupDialog: React.FC<JoinGroupDialogProps> = ({ children }) => {
+const JoinGroupDialog: React.FC<JoinGroupDialogProps> = ({ open, onOpenChange }) => {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        {children}
-      </DialogTrigger>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px] bg-purple-dark text-white border-purple-light/30">
         <DialogHeader>
           <DialogTitle className="text-purple-light">Choose Your Counseling Path</DialogTitle>

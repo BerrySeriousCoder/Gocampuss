@@ -21,7 +21,7 @@ const Navbar = () => {
             <span className="text-xl font-bold tracking-tight">Go Campuss</span>
           </Link>
         </div>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex font-bold items-center gap-6">
           <Link to="/" className="text-foreground/70 transition-colors hover:text-foreground">
             Search by Rank
           </Link>
@@ -33,7 +33,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/portfolio"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-purple-light to-purple-accent hover:from-purple-light hover:to-purple-accent/90 text-white h-10 px-4 py-2"
+            className="inline-flex  items-center justify-center whitespace-nowrap rounded-md text-sm font-bold  ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-purple-light/90 to-purple-accent/70 hover:from-purple-light hover:to-purple-accent/90 text-white h-10 px-4 py-2"
           >
             Portfolio
           </Link>

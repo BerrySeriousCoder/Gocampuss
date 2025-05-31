@@ -22,6 +22,8 @@ const Home = () => {
   const [category, setCategory] = useState<string>("OPEN"); // Set default category to "OPEN"
   const [gender, setGender] = useState<string>("");
   const [searchError, setSearchError] = useState<string>("");
+  const [isJoinGroupDialogOpen, setIsJoinGroupDialogOpen] = useState(false);
+
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,11 +92,11 @@ const Home = () => {
 
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
-                  onClick={() => document.getElementById('search-form')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-gradient-to-r from-purple-light to-purple-accent hover:from-purple-light hover:to-purple-accent/90 text-white"
+                  onClick={() => navigate("/portfolio")}
+                  className="bg-gradient-to-r font-bold t from-purple-light to-purple-accent hover:from-purple-light hover:to-purple-accent/90 text-black"
                   size="lg"
                 >
-                  Find Colleges <ArrowRight className="ml-2" />
+                  Get Counselling <ArrowRight className="ml-2" />
                 </Button>
                 <Button 
                   variant="outline"
@@ -384,13 +386,12 @@ const Home = () => {
             >
               Get Counselling
             </Button>
-            <JoinGroupDialog>
               <Button
                 className="bg-transparent border border-white text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/10 transition-colors duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+                onClick={() => setIsJoinGroupDialogOpen(true)} // Open the dialog on click
               >
                 Join Our Group
               </Button>
-            </JoinGroupDialog>
           </div>
         </div>
         {/* Abstract shapes for background */}
@@ -402,6 +403,8 @@ const Home = () => {
 
       
 
+      {/* Render the dialog here, controlled by state */}
+      <JoinGroupDialog open={isJoinGroupDialogOpen} onOpenChange={setIsJoinGroupDialogOpen} />
     </motion.div>
   );
 };
