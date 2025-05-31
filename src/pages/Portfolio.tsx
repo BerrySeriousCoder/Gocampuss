@@ -1,5 +1,5 @@
-import { ArrowRight , LucideYoutube } from 'lucide-react';
-import { Instagram, X , Linkedin } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Instagram, X , Linkedin} from 'lucide-react';
 import { testimonials } from "@/lib/testimonials";
 import { useState } from 'react';
 import {
@@ -60,12 +60,6 @@ const Portfolio = () => {
             <p className="text-lg italic mt-10">
               My mission is to simplify the admission journey, providing clarity and confidence every step of the way. I believe in empowering students to make choices that align with their academic goals and career aspirations.
             </p>
-            <div className='mt-10' >
-            <a href="https://youtube.com/@sumitmishra77?feature=shared" target="_blank" rel="noopener noreferrer" className="text-purple-light  hover:text-white transition-colors duration-300" aria-label="LinkedIn">
-               My Youtube Channel  <LucideYoutube size={40} />
-              </a>
-            </div>
-            
           </div>
         </div>
       </section>
@@ -79,36 +73,52 @@ const Portfolio = () => {
           {/* Diagram */}
           <div className="relative flex flex-col items-center justify-center py-12 min-h-[600px] md:min-h-[700px] lg:min-h-[800px]">
             {/* Central Element */}
-            <div className="w-40 h-40 md:w-48 md:h-48  rounded-full bg-purple-primary flex items-center justify-center text-center text-lg font-semibold p-4 z-10 shadow-lg">
+            <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-purple-primary flex items-center justify-center text-center text-lg font-semibold p-4 z-10 shadow-lg  md:mb-0">
               WHY CHOOSE ME?
             </div>
 
             {/* Surrounding Elements */}
-            <div className="absolute w-full h-full flex items-center justify-center">
+            {/* On mobile, use flex column layout with visual connectors. On medium screens and up, use absolute positioning. */}
+            <div className="flex flex-col items-center justify-center  md:absolute md:w-full md:h-full md:flex-row md:gap-0">
               {/* Top-Left */}
-              <div className="absolute top-[5%]  left-[7%] z-10 w-40 h-40 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
-                <p className="font-semibold text-white">Insider Knowledge – Get exclusive insights into AKTU admissions, cutoffs & top colleges.</p>
+              <div className="flex flex-col items-center md:absolute md:top-[5%] md:left-[7%] z-10">
+                <div className="w-2 h-11 bg-purple-light md:hidden"></div> {/* Mobile connector line */}
+                <div className="w-48 h-48 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
+                  <p className="font-semibold text-white">Insider Knowledge – Get exclusive insights into AKTU admissions, cutoffs & top colleges.</p>
+                </div>
               </div>
               {/* Top-Right */}
-              <div className="absolute top-[5%] right-[7%] z-10 w-40 h-40 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
-                 <p className="font-semibold text-white">Expert Guidance – Years of experience in AKTU admissions & counseling.</p>
+              <div className="flex flex-col items-center md:absolute md:top-[5%] md:right-[7%] z-10">
+                 <div className="w-2 h-11 bg-purple-light md:hidden"></div> {/* Mobile connector line */}
+                <div className="w-48 h-48 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
+                   <p className="font-semibold text-white">Expert Guidance – Years of experience in AKTU admissions & counseling.</p>
+                </div>
               </div>
               {/* Middle-Left */}
-              <div className="absolute -left-[3%] top-1/2 z-10 -translate-y-1/2 w-40 h-40 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
-                <p className="font-semibold text-white">Personalized Roadmap – Tailored counseling to match your aspirations, not generic advice.</p>
+              <div className="flex flex-col items-center md:absolute md:-left-[3%] md:top-1/2 md:-translate-y-1/2 z-10">
+                 <div className="w-2 h-11 bg-purple-light md:hidden"></div> {/* Mobile connector line */}
+                <div className="w-48 h-48 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
+                  <p className="font-semibold text-white">Personalized Roadmap – Tailored counseling to match your aspirations, not generic advice.</p>
+                </div>
               </div>
                {/* Middle-Right */}
-              <div className="absolute -right-[3%] top-1/2 z-10  -translate-y-1/2 w-40 h-40 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
-                <p className="font-semibold text-white">Proven Track Record – Hundreds of students got into their dream college with our expert guidance.</p>
+              <div className="flex flex-col items-center md:absolute md:-right-[3%] md:top-1/2 md:-translate-y-1/2 z-10">
+                 <div className="w-2 h-11 bg-purple-light md:hidden"></div> {/* Mobile connector line */}
+                <div className="w-48 h-48 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
+                  <p className="font-semibold text-white">Proven Track Record – Hundreds of students got into their dream college with our expert guidance.</p>
+                </div>
               </div>
                {/* Bottom-Center */}
-              <div className="absolute bottom-[10%] z-10 w-40 h-40 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 transform translate-y-1/2 shadow-md card-hover">
-                <p className="font-semibold text-white">Hassle-Free Process – We handle the research, paperwork & strategy – you just focus on your future!</p>
+              <div className="flex flex-col items-center md:absolute md:bottom-[10%] md:left-1/2 md:-translate-x-1/2 md:translate-y-1/2 z-10">
+                 <div className="w-2 h-11 bg-purple-light md:hidden"></div> {/* Mobile connector line */}
+                <div className="w-48 h-48 md:w-48 md:h-48 rounded-full glass flex items-center justify-center text-center text-sm p-4 shadow-md card-hover">
+                  <p className="font-semibold text-white">Hassle-Free Process – We handle the research, paperwork & strategy – you just focus on your future!</p>
+                </div>
               </div>
 
               {/* Arrows (simplified for visual appeal, not exact connections) */}
-              {/* Lines connecting central element to surrounding elements */}
-              <svg className="absolute z-0" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+              {/* Lines connecting central element to surrounding elements - these will only be visible on medium screens and up */}
+              <svg className="hidden md:block absolute z-0" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
                 {/* Top-Left */}
                 <line x1="50" y1="50" x2="20" y2="20" stroke="#c147e9" strokeWidth="1" />
                 {/* Top-Right */}
