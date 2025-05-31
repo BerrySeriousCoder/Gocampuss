@@ -377,6 +377,7 @@ const Home = () => {
                 // Placeholder for counselling action - maybe scroll to a contact form or open a modal?
                 // For now, let's just log it or navigate to a contact page if one exists
                 console.log("Request Counselling");
+                navigate('/portfolio')
                 // navigate('/contact'); // Example if you have a contact page
               }}
               className="bg-white text-purple-primary px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-200 transition-colors duration-300 shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"

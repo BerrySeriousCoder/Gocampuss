@@ -10,7 +10,7 @@ interface BoardToggleProps {
 
 const BoardToggle = ({ value, onChange }: BoardToggleProps) => {
   return (
-    <div className="flex rounded-full p-1 bg-surface border border-surface-border">
+    <div className="flex rounded-full p-1 bg-slate-300 border border-purple-primary">
       <button
         type="button"
         className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
