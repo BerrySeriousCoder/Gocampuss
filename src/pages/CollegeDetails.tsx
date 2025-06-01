@@ -195,7 +195,7 @@ const CollegeDetails = () => {
               {collegeInfo?.collegeTourVideo && (
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
                   <iframe
-                    src={collegeInfo.collegeTourVideo.replace("watch?v=", "embed/")}
+                    src={collegeInfo.collegeTourVideo.match(/<iframe.*?src=["'](.*?)["'].*?>/)?.[1] || ''}
                     title="College Tour Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -206,7 +206,7 @@ const CollegeDetails = () => {
               {collegeInfo?.studentReviewVideo && (
                 <div className="aspect-video w-full rounded-lg overflow-hidden">
                   <iframe
-                    src={collegeInfo.studentReviewVideo.replace("watch?v=", "embed/")}
+                    src={collegeInfo.studentReviewVideo.match(/<iframe.*?src=["'](.*?)["'].*?>/)?.[1] || ''}
                     title="Student Review Video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
