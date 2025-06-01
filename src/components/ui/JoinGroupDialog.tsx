@@ -27,7 +27,7 @@ const JoinGroupDialog: React.FC<JoinGroupDialogProps> = ({ open, onOpenChange })
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <Button asChild className="bg-purple-primary hover:bg-purple-light text-white hover:text-purple-dark font-bold py-3 px-6 rounded-lg transition-colors duration-300">
-            <a href="https://chat.whatsapp.com/KgGWHmkR26b3BYxYJvp1Sc" target="_blank" rel="noopener noreferrer">Join Paid Group</a>
+            <a href="https://forms.gle/RbCttQrYPpHKsnVG8" target="_blank" rel="noopener noreferrer">Join Paid Group</a>
           </Button>
           <Button asChild variant="outline" className="border-purple-light text-purple-light hover:bg-purple-light hover:text-purple-dark font-bold py-3 px-6 rounded-lg transition-colors duration-300">
             <a href="https://chat.whatsapp.com/DVk8OwBUikbCo4pJczU2NC" target="_blank" rel="noopener noreferrer">Join Free Group</a>
