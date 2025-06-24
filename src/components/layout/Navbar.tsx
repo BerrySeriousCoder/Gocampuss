@@ -1,7 +1,6 @@
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import logo from '../../assets/logobg.png';
+import logo from "../../assets/logobg.png";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
@@ -22,15 +21,31 @@ const Navbar = () => {
           </Link>
         </div>
         <nav className="hidden md:flex font-bold items-center gap-6">
-          <Link to="/" className="text-foreground/70 transition-colors hover:text-foreground">
+          <Link
+            to="/"
+            className="text-foreground/70 transition-colors hover:text-foreground"
+          >
             Search by Rank
           </Link>
-          <Link to="/college-search" className="text-foreground/70 transition-colors hover:text-foreground">
+          <Link
+            to="/college-search"
+            className="text-foreground/70 transition-colors hover:text-foreground"
+          >
             Search by College
           </Link>
-          <Link to="/colleges" className="text-foreground/70 transition-colors hover:text-foreground">
+          <Link
+            to="/colleges"
+            className="text-foreground/70 transition-colors hover:text-foreground"
+          >
             All Colleges
           </Link>
+          <Link
+            to="https://roadmap.gocampuss.com"
+            className="text-foreground/70 transition-colors hover:text-foreground"
+          >
+            Tech Roadmap
+          </Link>
+
           <Link
             to="/portfolio"
             className="inline-flex  items-center justify-center whitespace-nowrap rounded-md text-sm font-bold  ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-purple-light/90 to-purple-accent/70 hover:from-purple-light hover:to-purple-accent/90 text-white h-10 px-4 py-2"
@@ -49,21 +64,47 @@ const Navbar = () => {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="pr-0">
-            <Link to="/" className="flex items-center gap-2" onClick={closeSheet}>
+            <Link
+              to="/"
+              className="flex items-center gap-2"
+              onClick={closeSheet}
+            >
               <img src={logo} alt="logo" className="h-10 w-8" />
-              <span className="text-xl font-bold tracking-tight">Go campuss</span>
+              <span className="text-xl font-bold tracking-tight">
+                Go campuss
+              </span>
             </Link>
             <div className="my-4 h-[1px] w-full bg-muted" />
             <nav className="flex flex-col gap-4">
-              <Link to="/" className="text-foreground/70 transition-colors hover:text-foreground" onClick={closeSheet}>
+              <Link
+                to="/"
+                className="text-foreground/70 transition-colors hover:text-foreground"
+                onClick={closeSheet}
+              >
                 Search by Rank
               </Link>
-              <Link to="/college-search" className="text-foreground/70 transition-colors hover:text-foreground" onClick={closeSheet}>
+              <Link
+                to="/college-search"
+                className="text-foreground/70 transition-colors hover:text-foreground"
+                onClick={closeSheet}
+              >
                 Search by College
               </Link>
-              <Link to="/colleges" className="text-foreground/70 transition-colors hover:text-foreground" onClick={closeSheet}>
+              <Link
+                to="/colleges"
+                className="text-foreground/70 transition-colors hover:text-foreground"
+                onClick={closeSheet}
+              >
                 All Colleges
               </Link>
+              <Link
+                to="https://roadmap.gocampuss.com"
+                className="text-foreground/70 transition-colors hover:text-foreground"
+                onClick={closeSheet}
+              >
+                Tech Roadmap
+              </Link>
+
               <Link
                 to="/portfolio"
                 className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-purple-light to-purple-accent hover:from-purple-light hover:to-purple-accent/90 text-white h-10 px-4 py-2"
