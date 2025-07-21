@@ -305,7 +305,7 @@ const Portfolio = () => {
             </div>
 
             <p className="text-lg italic mt-10 mb-8 text-muted-foreground text-center leading-relaxed">
-              Why take risks when expert help is just one step away? Secure your best possible seat with strategic, stress-free, and personalized counseling in just <span className='font-bold text-3xl text-purple-light' >₹499</span>
+              Why take risks when expert help is just one step away? Secure your best possible seat with strategic, stress-free, and personalized counseling in just <span className='font-bold text-3xl text-purple-light' >₹799</span>
             </p>
 
             <div className="text-center">
